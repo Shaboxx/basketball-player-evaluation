@@ -7,7 +7,7 @@ import unittest
 import torch
 from player_value.data import Transform, fingerprint, validate
 from player_value.demo import run
-from player_value.evaluation import paired_bootstrap
+from player_value.evaluation import contribution_scores, paired_bootstrap
 from player_value.fixture import generate
 from player_value.model import ModelConfig, ThetaNN, compute_loss, expected_points
 
@@ -104,6 +104,22 @@ class ModelInvariants(unittest.TestCase):
         self.assertAlmostEqual(result["mean_delta_nll"], -0.1)
         with self.assertRaises(ValueError):
             paired_bootstrap(a, {"other": 0.2})
+
+    def test_replacement_signs_and_appearance_weighted_centering(self):
+        class KnownEffect:
+            def points_logits(self, off, defense, ctx, season):
+                probability = 0.4 + 0.2 * (off == 1).any(1) - 0.15 * (defense == 2).any(1)
+                zero = torch.zeros_like(probability)
+                return torch.stack([1 - probability, zero, probability, zero, zero], 1).log()
+
+        batch = self.transform.batch(self.rows)
+        scores = contribution_scores(KnownEffect(), self.transform, batch, self.rows, min_support=1)
+        by_player = {row["player_id"]: row for row in scores}
+        self.assertGreater(by_player["P01"]["off_per100"], 30)
+        self.assertGreater(by_player["P02"]["def_per100"], 20)
+        for side in ("off", "def"):
+            centered = sum(row[side + "_per100"] * row[side + "_possessions"] for row in scores)
+            self.assertAlmostEqual(centered, 0, places=6)
 
 
 class Pipeline(unittest.TestCase):
