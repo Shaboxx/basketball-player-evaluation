@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basketball-player-evaluation"
+version = "0.1.0"
+description = "Possession-based player contribution estimates with reproducible synthetic evaluation"
+requires-python = ">=3.13,<3.14"
+dependencies = ["torch==2.13.0"]
+
+[tool.setuptools.packages.find]
+include = ["player_value*"]
