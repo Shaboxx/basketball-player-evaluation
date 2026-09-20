@@ -1,0 +1,54 @@
+{
+  "verified_on": "2026-09-20",
+  "corpus": {
+    "possessions": 1396353,
+    "games": 7230
+  },
+  "seasons": [
+    {
+      "season": "2020-21",
+      "possessions": 208912,
+      "games": 1080
+    },
+    {
+      "season": "2021-22",
+      "possessions": 235916,
+      "games": 1230
+    },
+    {
+      "season": "2022-23",
+      "possessions": 238496,
+      "games": 1230
+    },
+    {
+      "season": "2023-24",
+      "possessions": 236419,
+      "games": 1230
+    },
+    {
+      "season": "2024-25",
+      "possessions": 237154,
+      "games": 1230
+    },
+    {
+      "season": "2025-26",
+      "possessions": 239456,
+      "games": 1230
+    }
+  ],
+  "origin_2024_25": {
+    "fit": {
+      "possessions": 896246,
+      "games": 4647
+    },
+    "early_stopping_validation": {
+      "possessions": 23497,
+      "games": 123
+    },
+    "evaluation": {
+      "possessions": 237154,
+      "games": 1230
+    }
+  },
+  "evidence_type": "Aggregate metadata checked against normalized possession row counts and distinct game counts; no raw sports data is distributed."
+}
