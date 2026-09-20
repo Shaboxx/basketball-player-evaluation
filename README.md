@@ -76,7 +76,7 @@ The historical corpus is **not one training split**. For the documented 2024–2
 
 The saved historical point-prediction gate passed; the team-level EPM non-inferiority gate failed, and the separate planted player-recovery suite also failed. A team-permutation check passed. These records do **not** support claiming that the model outperformed EPM as a player-value measure or that all gates passed. Historical results are archived observations and are not reproduced by the synthetic example. [Inspect the scope and historical gate details](docs/historical-results.md).
 
-The synthetic generator deliberately makes lineup signal learnable. Its confidence intervals reflect 12 held-out games from one seed, not model uncertainty across realistic seasons. Real use would require rights-cleared data, stronger lineup support checks, temporal evaluation, calibration analysis, and evidence that player-level estimates remain useful under correlated lineups and changes in team context.
+The synthetic generator deliberately makes lineup signal learnable. Its confidence intervals reflect 12 held-out games from one seed, not model uncertainty across realistic seasons. The one-hot baseline ties each player's offensive and defensive class effects with opposite signs, while the fixture generates separate offensive and defensive skills. Its lower capacity means the comparison is not an isolated test of neural architecture. Real use would require rights-cleared data, stronger lineup support checks, temporal evaluation, calibration analysis, and evidence that player-level estimates remain useful under correlated lineups and changes in team context.
 
 ## Project history, data, and licensing
 

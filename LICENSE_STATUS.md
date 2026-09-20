@@ -1,3 +1,3 @@
 # License status
 
-A license decision from the copyright owner is pending. No open-source license or permission to relicense existing work is asserted by this prepared release. Dependency licenses are described in [THIRD_PARTY.md](THIRD_PARTY.md).
+No open-source license is currently granted for this project's code or original example assets. Copyright remains with the respective rights holders. Public availability does not itself grant permission to redistribute or relicense the work. Dependency licenses are described in [THIRD_PARTY.md](THIRD_PARTY.md).
